@@ -1,11 +1,12 @@
-FROM ubuntu:16.04
+FROM ubuntu:16.04z
 WORKDIR /root
-RUN apt-get update && apt-get install -y \
+RUN apt-get install -y \
   curl \
   python3 \
   openssl \
   xz-utils
 
+COPY mp-spdz-0.1.5.tar.xz .
 ADD install.sh .
 RUN ["bash", "install.sh"]
 
